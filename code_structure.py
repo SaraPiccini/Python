@@ -51,7 +51,23 @@ for i in range (10,16,2):
 #10,12,14
 
 # LIST COMPREHENSION
-,,,
+numbers = [1,2,3,4,5,6,7,8,9]
+newn = [n*n for n in numbers if n%2 == 1]
+newn
+# [1,9,25,49,81]
+
+# DICT COMPREHENSION
+a = "python"
+b = {k : ord(k) for R in a}
+b
+#{'p':112, 'y':121...} ord() funzione che riporta valore numerico associato al carattere
+
+# SET COMPREHENSION
+a = "doppione"
+c = {k for k in a}
+c
+#{'i','e','p','n','o','d'} -> no valori duplicati
+
 
 
   
