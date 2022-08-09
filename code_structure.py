@@ -137,7 +137,59 @@ def yFunc(f,x,y): #f funzione (oggetto), x,y parametri
 myFunc (sum,10,5)
 #15
 
+# local scope: livello interno della funzione
+def sum (x,y):
+  c = x+y
+  return c
 
+# enclosing scope: definiti in funzione che racchiude funzione
+def outer(x):
+  y = 20
+  def inner():
+    print(x+y)
+  inner()
+
+# global scope: namespace di tutti i nomi definiti nel file sorgente fuori dalle funzioni
+x = 100
+def myFunc(y):
+  print(x+y)
+  
+#built-in space: funzioni predefinite
+
+# FUNCTION DECORATOR
+def myFunc():
+  print('funzione')
+  
+def myDecorator (f):
+  def decorator ():
+    print ('dec')
+    f()
+  return decorator
+
+def myFunc():
+  print('funzione')
+
+myFunc = myDecorator(myFunc)
+myFunc()
+#dec
+#funzione
+
+# per semplicità decorare con decoratore inserendolo prima della funzione
+@myDecorator 
+def myFunc():
+  print(funzione)
+  
+# funzioni lambda: ritorna funzione anonima
+def myFunc (a,b):
+  return a**b
+myFunc (2,3)
+#8
+f = lambda a,b : a**b
+f(2,3)
+#8
+
+  
+ 
 
 
 
