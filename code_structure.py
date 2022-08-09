@@ -68,6 +68,77 @@ c = {k for k in a}
 c
 #{'i','e','p','n','o','d'} -> no valori duplicati
 
+# FUNCTIONS
+def myFunc(a,b,c,d):
+  print(a,b,c,d)
+def myFunc(b=20, a=10, d=40, c=30)
+myFunc
+#10,20,30,40 -> ordine
+
+def myFunc(*args):
+  print(args)  # -> tupla
+myFunc (1,2,3,4)
+#(1,2,3,4)
+
+def myFunc(a, b, *args):
+  print(a, b, args)  # -> args dichiarato a dx
+myFunc (1,2,3,4,5)
+# 1,2 (3,4,5)
+
+def myFunc(*kwargs):
+  print(kwargs)  # -> raggruppa numero variabile di argomenti keyword in dizionario
+myFunc (a=1, b=2, c=3)
+myFunc
+# {'a'=1, 'b'=2, 'c'=3}
+
+# STATEMENT RETURN
+def sum(a,b):
+  return a + b
+def sum(a,b):
+  return
+#none
+def sum(a,b):
+  c = a+b
+#none
+
+# CHIAMARE UNA FUNZIONE
+#function_name (arguments)
+
+def lista def (l1, l2 = [1,2,3,4,5]):
+  l = []
+  for x in l1:
+    if not x in l2:
+      l.append (x)
+  return l
+
+# FUNZIONI COME OGGETTI: FUNCTION TYPE
+# funzioni nidificate
+def outer (x,y):
+  def sum (a,b):
+    return a + b
+  print(sum(x,y))
+outer(10,5)
+#15
+
+# funzione come valore di ritorno
+def outer():
+  def inner(a,b):
+    print(a+b)
+  return inner
+f = outer
+f(10,5)
+#15
+
+# funzione come parametro
+def sum (a,b):
+  print(a+b)
+def yFunc(f,x,y): #f funzione (oggetto), x,y parametri
+  f(x,y)
+myFunc (sum,10,5)
+#15
+
+
+
 
 
   
