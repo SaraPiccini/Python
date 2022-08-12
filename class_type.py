@@ -174,6 +174,66 @@ destinazione.deposita(importo)
 GestoreContiCorrenti.bonifico(c1,c2,300)
 
 # EXCEPTIONS
+def myFunc (a,b):
+  return a//b
+
+myFunc(10,0)
+#ZeroDivisionError
+
+# per gestire eccezioni:
+# statement composto: TRY/EXCEPT
+def f(x,y):
+  return x//y
+try:
+  c = f(4,0)
+except:
+  print("ERRORE")
+#or
+except ZeroDivisionError:
+  print("ERRORE")
+except IndexError:
+  print("IndexError")
+
+# statement TRY/EXCEPT/AS
+def f(x,y):
+  return x//y
+try:
+  c = f(4,0)
+except ZeroDivisionError as e:
+  print (e.args)
+  
+# clausole FINALLY - ELSE
+try:
+  suite
+finally:
+    suite #azione sempre eseguita anche se clausola try da errore
+
+try:
+  suite
+except expression:
+  suite
+else:
+  suite #eseguita solo se non viene sollevata nessuna eccezione nella try
+
+# statement RAISE - ASSERT
+for i in range(50):
+  print(i)
+  raise IndexError
+  #or
+  raise IndexError("Errore nel loop")
+  #or
+  raise #solleva eccezione interrompendo esecuzione
+
+# per valutare se espressione è true or false (-> solleva eccezione)
+assert expression, argument # stringa con messaggio
+x = 10
+assert x == 5, "valori diversi"
+# AssertionError: valori diversi (eccezione + argomento aggiunto)
+
+
+
+
+
 
     
     
