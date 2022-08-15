@@ -70,6 +70,30 @@ with open("myfile.txt", "rt") as f_in, \
       counter += 1 #nel loop inverto valore del flag da vero a falso e da falso a vero incrementando di 1 unita il contatore per inserire nel file output una riga si e una no
      
 # metodi tell() e seek()
+offset = file.tell() #ritorna offset corrente
+n = file.seek(offset, whence) #posiziona offset nel punto in cui vogliamo che lettura/scrittura inizi. whence = 0 (offset inizio), 1(offset calcolata dalla posizione corrente del puntatore) or 2 (offset calcolato a partire dalla fine)
+
+import os
+os.SEEK_SET
+os.SEEK_CUR
+os.SEEK_END
+
+f = open("myfile.txt", "rb")
+f.tell()
+# 0: inizio del file
+f.seek(119) #sposta offset e leggi byte che compongono parola
+str = f.read(7) #parola di 7 lettere
+str
+# b'quattro'
+import os #per usare valori predefiniiti del posizionamento dell offset
+f.seek (-9, os.SEEK_END)
+#887
+str = f.read()
+str
+# b'crogono.ln' ln: EOL
+f.close()
+
+
 
 
 
