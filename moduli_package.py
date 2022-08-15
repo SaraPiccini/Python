@@ -34,3 +34,72 @@ class AClass (BClass, CClass) :
 a = AClass()
 print(a.b)
 print(a.c)
+# method resolution order (MRO)
+
+class myClass():
+  def __new__ (cls): #costruttore di istanza di classe
+    print ("Istanza creata")
+  def __init__ (self): #inizializzatore di istanza di classe 
+    print ("Istanza inizializzata")
+    
+class myClass():
+  def __new__ (cls):
+    istanza = super().__new__(cls)
+    print ("Istanza creata")
+    return istanza
+
+# creazione iteratore
+class myIter:
+  def __iter__ (self): #oggetto iterabile che ritorna oggetto iteratore
+    self.myattr = 2
+    return self
+  def __next__ (self): #oggetto iteratore che esegue iterazione su oggetti iterabili
+    if self.myattr < 300:
+      n = self.attr
+      self.myattr* = 2
+      return n
+    else:
+      raise stopiteration 
+
+myClass = myIter()
+myIter = iter (myClass)
+for i in myIter:
+  print(i)
+  
+# generator functions
+def get_doppio_gen():
+  e = 2
+  while (e < 300):
+    yield e #loop con variabile di controllo e e iteraotre con yield
+    e *= 2 
+    
+gen = get_doppio_gen()
+print(gen)
+gen.__next__() #generator object
+
+# return per interrompere funzione genertore e iterazione. eccezione: stopiteration 
+def get_doppio_gen():
+  e = 2
+  while (True):
+    yield e 
+    e *= 2 
+    if (e >= 300):
+      return
+gen = get_doppio_gen()
+for e in gen():
+  print(e)
+  
+# Generator expression equivalente a list comprehension, non puo essere iterato piu volte
+list = [1,2,3,4,5]
+newGen = (n*n for n in list if n % 2 == 1)
+type(newGen)
+# class generator
+for e in newGen:
+  print(e)
+  
+
+  
+  
+  
+
+
